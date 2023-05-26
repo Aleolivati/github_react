@@ -31,25 +31,27 @@ return (
                 <h2>Usuário não encontrado!</h2>
                 <p>Parece que não encontramos o usuário referido... Por favor, tente novamente com um nome de usuário válido!</p>
             </div>
-        ) : (
-        <ul className={style.list}>
-            {repo.map(({ id, name, language, html_url }) => (
-            <li key={id} className={style.listItem}>
-                <div className={style.itemName}>
-                    <b>Nome:</b>
-                    {name}
-                </div>
-                <div className={style.itemLanguage}>
-                    <b>Linguagem:</b>
-                    {language}
-                </div>
-                <a target="_blank" href={html_url} className={style.itemLink}>
-                Visitar no Github
-                </a>
-            </li>
-            ))}
-        </ul>
-        )}
+        ) : ( repo.length === 0 ? (
+                <h2 className="alert">Este usuário não possui nenhum repositório Git! </h2>
+            ) : (
+                <ul className={style.list}>
+                {repo.map(({ id, name, language, html_url }) => (
+                    <li key={id} className={style.listItem}>
+                        <div className={style.itemName}>
+                            <b>Nome:</b>
+                            {name}
+                        </div>
+                        <div className={style.itemLanguage}>
+                            <b>Linguagem:</b>
+                            {language}
+                        </div>
+                        <a target="_blank" href={html_url} className={style.itemLink}>
+                        Visitar no Github
+                        </a>
+                    </li>
+                ))}
+            </ul>
+        ))}
     </div>
     );
 };
