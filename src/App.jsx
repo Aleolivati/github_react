@@ -15,7 +15,7 @@ function App() {
   return (
 
     <>
-      <h1>Consultor de Repositórios - Github</h1>
+      <h1 className='userName'>Consultor de Repositórios - Github</h1>
       <div className='userName'>
         <p>Nome do usuário:</p>
         <input className="userNameInput" type='text' onKeyDown={event => pressEnter(event)} onBlur={(e) => setName(e.target.value)} placeholder={`tente 'Aleolivati'`}/>
